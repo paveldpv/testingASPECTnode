@@ -14,7 +14,7 @@ test('search found one result', async () => {
 	await controllerDB.createTablesWithMockData(nameTable,10000)
 
 	expect(await controllerDB.search('table1', '9999')).toEqual({
-		data: [{ id: 9999, name: 'name 9999', description: 'description 9999' }],
+		data: [{ id: "9999", name: 'name 9999', description: 'description 9999' }],
 		count: '1',
 	})	
 })

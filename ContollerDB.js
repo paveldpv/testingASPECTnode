@@ -21,7 +21,7 @@ class ControllerDB {
 	async #_createTable(nameTable) {
 		await client.query(
 			`DROP TABLE IF EXISTS ${nameTable};
-			CREATE TABLE ${nameTable} (id INTEGER PRIMARY KEY,name VARCHAR(255),description VARCHAR(255));`
+			CREATE TABLE ${nameTable} (id VARCHAR(255) KEY,name VARCHAR(255),description VARCHAR(255));`
 		)
 	}
 	async #_includeData(nameTable, amountMockElement = 100) {
@@ -38,7 +38,7 @@ class ControllerDB {
 			(acum, el) =>
 				acum +
 				`DROP TABLE IF EXISTS ${el};
-				CREATE TABLE ${el} (id INTEGER PRIMARY KEY,name VARCHAR(255),description VARCHAR(255));`,
+				CREATE TABLE ${el} (id VARCHAR(255),name VARCHAR(255),description VARCHAR(255));`,
 			``
 		)
 
